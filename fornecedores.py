@@ -13,11 +13,11 @@ class Cadfornecedores(Apoio):
     def telafornecedor(self):
         self.janelafornecedor.title('Cadastro de fornecedores')
         self.janelafornecedor.geometry('700x400+400+200')
+        self.janelafornecedor.grab_set()
+        self.janelafornecedor.anchor
         self.framefornecedor()
 
     def framefornecedor(self):
         self.frmFornecedor = Frame(self.janelafornecedor, bg=self.corframe2)
         self.frmFornecedor.place(relx=0.00, rely=0.00, relwidth=1, relheight=1)
 
-if __name__ == '__main__':
-    b = Cadfornecedores()

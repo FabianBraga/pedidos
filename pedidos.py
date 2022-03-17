@@ -1,9 +1,10 @@
 from tkinter import Button, PhotoImage, Tk, Frame, Label
 #from tkinter.ttk import Frame
 from fornecedores import Cadfornecedores
+from produtos import Cadprodutos
 import base64
 
-class Pedidos(Cadfornecedores):
+class Pedidos(Cadfornecedores, Cadprodutos):
     def __init__(self):
         self.pedidos = Tk()
         self.padroes()
@@ -17,6 +18,8 @@ class Pedidos(Cadfornecedores):
 
     def chamafornecedor(self):
         Cadfornecedores.__init__(self)
+    def chamaproduto(self):
+        Cadprodutos.__init__(self)
     def frameprincipal(self):
         self.btpedido = PhotoImage(data= base64.b64decode(self.imgpedido))
         self.btpedido = self.btpedido.subsample(4, 4)
@@ -30,19 +33,19 @@ class Pedidos(Cadfornecedores):
         self.frameprincipal = Frame(self.pedidos)
         self.frameprincipal.place(relx=0.00, rely=0.00, relwidth=1, relheight=1)
 
-        self.bt_pedidos = Button(self.frameprincipal, image=self.btpedido)
+        self.bt_pedidos = Button(self.frameprincipal, image=self.btpedido, command=self.chamafornecedor)
         self.bt_pedidos.place(x=20, y=20, width=140, height=140)
         self.lb_pedidos = Label(self.frameprincipal, text='Pedidos', bg = self.corframe4, fg = self.corlt2, font= self.fonte12,
         width = 15)
         self.lb_pedidos.place(x=20, y=160)
 
-        self.bt_compras = Button(self.frameprincipal, image=self.btcompras)
+        self.bt_compras = Button(self.frameprincipal, image=self.btcompras, command=self.chamafornecedor)
         self.bt_compras.place(x=170, y=20, width=140, height=140)
         self.lb_compras = Label(self.frameprincipal, text='Compras', bg = self.corframe4, fg = self.corlt2, font= self.fonte12,
                                 width=15)
         self.lb_compras.place(x=170, y=160)
 
-        self.bt_produtos = Button(self.frameprincipal, image=self.btprodutos)
+        self.bt_produtos = Button(self.frameprincipal, image=self.btprodutos, command=self.chamaproduto)
         self.bt_produtos.place(x=320, y=20, width=140, height=140)
         self.lb_produtos = Label(self.frameprincipal, text='Produtos', bg = self.corframe4, fg = self.corlt2, font= self.fonte12,
                                 width=15)
