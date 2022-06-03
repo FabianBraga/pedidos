@@ -1,8 +1,9 @@
 from tkinter import Button, PhotoImage, Tk, Frame, Label
-#from tkinter.ttk import Frame
 from fornecedores import Cadfornecedores
 from produtos import Cadprodutos
+#from bancodedados import Dados
 import base64
+
 
 class Pedidos(Cadfornecedores, Cadprodutos):
     def __init__(self):
@@ -15,13 +16,12 @@ class Pedidos(Cadfornecedores, Cadprodutos):
         self.pedidos.geometry('630x200+300+100')
         self.pedidos.resizable(0,0)
         self.frameprincipal()
-
     def chamafornecedor(self):
         Cadfornecedores.__init__(self)
     def chamaproduto(self):
         Cadprodutos.__init__(self)
     def frameprincipal(self):
-        self.btpedido = PhotoImage(data= base64.b64decode(self.imgpedido))
+        self.btpedido = PhotoImage(data=base64.b64decode(self.imgpedido))
         self.btpedido = self.btpedido.subsample(4, 4)
         self.btcompras = PhotoImage(data= base64.b64decode(self.imgcompras))
         self.btcompras = self.btcompras.subsample(4, 4)

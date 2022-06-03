@@ -7,7 +7,7 @@ class Cadfornecedores(Apoio):
         self.janelafornecedor = Toplevel()
         self.padroes()
         self.telafornecedor()
-        #self.frmFornecedor()
+        self.frmFornecedor()
         self.janelafornecedor.mainloop()
 
     def telafornecedor(self):
@@ -17,7 +17,7 @@ class Cadfornecedores(Apoio):
         self.janelafornecedor.anchor
         self.framefornecedor()
 
-    def framefornecedor(self):
+    def frmfornecedor(self):
         self.frmFornecedor = Frame(self.janelafornecedor, bg=self.corframe2)
         self.frmFornecedor.place(relx=0.00, rely=0.00, relwidth=1, relheight=1)
 
